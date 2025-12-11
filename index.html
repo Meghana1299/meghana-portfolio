@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meghana Bolla | Senior Full Stack Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio of Meghana Bolla, Senior Full Stack Java Developer specializing in cloud-native banking and fintech applications."
+  />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --chip-bg: #111827;
+      --border-subtle: rgba(156, 163, 175, 0.35);
+      --card-bg: #020617;
+      --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.9);
+      --radius-xl: 20px;
+      --radius-full: 999px;
+      --transition-fast: 0.2s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 35%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+          to bottom,
+          rgba(15, 23, 42, 0.95),
+          rgba(15, 23, 42, 0.75),
+          transparent
+        );
+      border-bottom: 1px solid rgba(55, 65, 81, 0.6);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #38bdf8, #0ea5e9 40%, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: white;
+      border: 1px solid rgba(248, 250, 252, 0.15);
+      box-shadow: 0 8px 25px rgba(8, 47, 73, 0.75);
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-title-main {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .nav-title-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      gap: 32px;
+      align-items: center;
+      padding-top: 40px;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 3.2vw, 40px);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span {
+      display: inline-block;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 570px;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      font-size: 12px;
+    }
+
+    .hero-chip {
+      padding: 6px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9, #6366f1);
+      border-color: rgba(248, 250, 252, 0.05);
+      box-shadow: 0 18px 45px rgba(37, 99, 235, 0.6);
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 55px rgba(59, 130, 246, 0.9);
+    }
+
+    .btn-ghost {
+      border-color: rgba(107, 114, 128, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .hero-contact {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hero-contact a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 2px;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at 0 0, #22c55e11, transparent 45%),
+        radial-gradient(circle at 100% 0, #38bdf811, transparent 45%),
+        rgba(15, 23, 42, 0.96);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      border-radius: var(--radius-full);
+      padding: 4px 9px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #facc15;
+    }
+
+    .hero-card h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .hero-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      border-radius: var(--radius-full);
+      padding: 4px 8px;
+      background: var(--chip-bg);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-muted);
+    }
+
+    .hero-metrics {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .metric {
+      flex: 1;
+      border-radius: 14px;
+      padding: 8px 10px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      font-size: 11px;
+    }
+
+    .metric span {
+      display: block;
+    }
+
+    .metric-label {
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+
+    .metric-value {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Sections */
+
+    section {
+      margin-top: 54px;
+    }
+
+    .section-heading {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    /* Skills */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+
+    .skill-card {
+      padding: 12px 12px 10px;
+      border-radius: 16px;
+      background: var(--bg-alt);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .skill-card h3 {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .skill-tag {
+      padding: 4px 8px;
+      border-radius: var(--radius-full);
+      background: var(--chip-bg);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    /* Experience */
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .exp-card {
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+      background: var(--bg-alt);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .exp-role {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .exp-company {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .exp-dates {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .exp-env {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .exp-list {
+      margin: 8px 0 2px;
+      padding-left: 15px;
+      font-size: 12px;
+      color: var(--text-main);
+    }
+
+    .exp-list li + li {
+      margin-top: 3px;
+    }
+
+    /* Projects */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+      background: radial-gradient(circle at top left, #38bdf811, transparent 55%),
+        radial-gradient(circle at bottom right, #a855f711, transparent 55%),
+        var(--bg-alt);
+      border: 1px solid rgba(59, 130, 246, 0.7);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .project-card h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .project-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+
+    .project-meta span {
+      padding: 4px 8px;
+      border-radius: var(--radius-full);
+      background: var(--chip-bg);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-muted);
+    }
+
+    .project-list {
+      padding-left: 15px;
+      font-size: 12px;
+    }
+
+    .code-block {
+      border-radius: 14px;
+      padding: 10px 10px 9px;
+      background: #020617;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono",
+        "Courier New", monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    /* Education & Contact */
+
+    .edu-contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    .edu-card,
+    .contact-card {
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+      background: var(--bg-alt);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 13px;
+    }
+
+    .edu-item + .edu-item {
+      margin-top: 8px;
+    }
+
+    .edu-degree {
+      font-weight: 600;
+    }
+
+    .edu-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .contact-list li + li {
+      margin-top: 4px;
+    }
+
+    .contact-list span {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-right: 6px;
+    }
+
+    .contact-list a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-style: dotted;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 12px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 820px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .projects-grid,
+      .edu-contact {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .exp-dates {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header {
+        position: static;
+      }
+
+      .page {
+        padding-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="logo-circle">M</div>
+        <div class="nav-title">
+          <span class="nav-title-main">Meghana Bolla</span>
+          <span class="nav-title-sub">Senior Full Stack Developer · Java · Cloud · FinTech</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero" id="about">
+      <div>
+        <h1 class="hero-title">
+          Senior <span>Full Stack Java Developer</span> specializing in cloud-native banking &amp; fintech.
+        </h1>
+        <p class="hero-subtitle">
+          Over 5 years of experience designing, developing, and delivering enterprise-grade financial systems
+          using Java, Spring Boot, React.js, microservices, and cloud platforms (GCP &amp; AWS). Focused on
+          secure, scalable, and compliant digital banking solutions.
+        </p>
+
+        <div class="hero-highlights">
+          <div class="hero-chip">
+            <span class="hero-chip-dot"></span>
+            <span>5+ years · Enterprise Java / FinTech</span>
+          </div>
+          <div class="hero-chip">
+            ☁ Cloud-native · GCP · AWS · Kubernetes
+          </div>
+          <div class="hero-chip">
+            💳 Payments · KYC/AML · Fraud Detection
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            View Projects →
+          </a>
+          <a
+            href="https://www.linkedin.com/in/meghanabolla"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn-ghost"
+          >
+            LinkedIn Profile
+          </a>
+        </div>
+
+        <div class="hero-contact">
+          <div>📧 <a href="mailto:b.meghana0812@gmail.com">b.meghana0812@gmail.com</a></div>
+          <div>📱 <a href="tel:+19375655029">+1 (937) 565 5029</a></div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Profile snapshot">
+        <div class="hero-card-header">
+          <span>Profile Snapshot</span>
+          <span class="pill">
+            <span class="pill-dot"></span>
+            Open to SDE / Full Stack roles
+          </span>
+        </div>
+        <h3>Cloud-native Banking &amp; FinTech</h3>
+        <p>
+          Designing resilient microservices, real-time pipelines, and secure APIs for high-volume financial
+          platforms.
+        </p>
+        <div class="hero-card-tags">
+          <span class="tag">Java 11/17 · Spring Boot</span>
+          <span class="tag">React.js &amp; Angular</span>
+          <span class="tag">Kafka · GCP · AWS</span>
+          <span class="tag">Microservices · Kubernetes</span>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric">
+            <span class="metric-label">Industry</span>
+            <span class="metric-value">Banking &amp; FinTech</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Cloud &amp; DevOps</span>
+            <span class="metric-value">GCP · AWS · CI/CD</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Focus</span>
+            <span class="metric-value">Secure APIs &amp; Fraud</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-heading">Technical Skills</h2>
+      <p class="section-subtitle">
+        A full-stack skill set spanning modern Java, JavaScript, distributed systems, and cloud infrastructure.
+      </p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Java (7–21)</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Kotlin</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Angular 2–14</span>
+            <span class="skill-tag">HTML5 &amp; CSS3</span>
+            <span class="skill-tag">Bootstrap</span>
+            <span class="skill-tag">Responsive UI</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Backend &amp; APIs</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Spring Cloud</span>
+            <span class="skill-tag">Spring MVC</span>
+            <span class="skill-tag">REST &amp; SOAP</span>
+            <span class="skill-tag">GraphQL</span>
+            <span class="skill-tag">Node.js</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Data &amp; Messaging</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Oracle</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Redis · Cassandra</span>
+            <span class="skill-tag">Kafka</span>
+            <span class="skill-tag">RabbitMQ · IBM MQ</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Cloud &amp; DevOps</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">GCP (GKE, Pub/Sub, BigQuery)</span>
+            <span class="skill-tag">AWS (ECS, EC2, S3)</span>
+            <span class="skill-tag">Docker · Kubernetes</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">Jenkins · GitHub Actions</span>
+            <span class="skill-tag">Cloud Build</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Security &amp; Monitoring</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Spring Security</span>
+            <span class="skill-tag">OAuth2 · JWT</span>
+            <span class="skill-tag">Okta SSO</span>
+            <span class="skill-tag">Grafana · Prometheus</span>
+            <span class="skill-tag">ELK · Splunk</span>
+            <span class="skill-tag">KYC/AML · PCI-DSS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2 class="section-heading">Experience</h2>
+      <p class="section-subtitle">
+        Building secure, compliant, and high-throughput platforms across banking and financial services.
+      </p>
+
+      <div class="timeline">
+        <!-- JPMorgan -->
+        <article class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Senior Full Stack Developer</div>
+              <div class="exp-company">JPMorgan Chase &amp; Co · Ohio, USA</div>
+            </div>
+            <div class="exp-dates">Jan 2024 – Present</div>
+          </div>
+          <ul class="exp-list">
+            <li>
+              Designed and implemented secure, cloud-native banking platforms using Java 11/17, Spring
+              Boot, React.js, and PostgreSQL.
+            </li>
+            <li>
+              Built event-driven microservices for real-time transaction and fraud processing using Apache
+              Kafka, Spring Cloud Stream, and GCP Pub/Sub.
+            </li>
+            <li>
+              Implemented RESTful and GraphQL APIs behind Google Cloud Endpoints with OAuth2 and JWT-based
+              authentication and Okta SSO integration.
+            </li>
+            <li>
+              Automated infrastructure with Terraform and CI/CD pipelines via Cloud Build, Jenkins, and
+              GitHub Actions with integrated unit and integration testing.
+            </li>
+            <li>
+              Built real-time streaming analytics pipelines using Flink, Spark, Dataproc, and BigQuery ML
+              for fraud detection and market insights.
+            </li>
+            <li>
+              Deployed containerized microservices on GKE and AWS ECS, with comprehensive monitoring via
+              Cloud Logging, Prometheus, and Grafana.
+            </li>
+          </ul>
+          <p class="exp-env">
+            <strong>Environment:</strong> Java 11/17, Spring Boot, Spring Cloud, React.js, Node.js,
+            PostgreSQL, GKE, Cloud SQL, Pub/Sub, BigQuery, Cloud Functions, AWS ECS, Terraform, Jenkins,
+            GitHub Actions, Cloud Build, Kafka, Flink, Spark, Prometheus, Grafana, KYC/AML, PCI-DSS, SOX.
+          </p>
+        </article>
+
+        <!-- Alloy Financials -->
+        <article class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Full Stack Developer</div>
+              <div class="exp-company">Alloy Financials · Hyderabad, India</div>
+            </div>
+            <div class="exp-dates">Aug 2022 – Apr 2023</div>
+          </div>
+          <ul class="exp-list">
+            <li>
+              Developed secure, cloud-native banking modules with Java 11/17, Spring Boot, React.js, and
+              PostgreSQL within an SOA-based architecture.
+            </li>
+            <li>
+              Built and optimized microservices using Spring Boot, Hibernate/JPA, RESTful APIs, and CXF-based SOAP
+              services.
+            </li>
+            <li>
+              Engineered real-time analytics pipelines with Flink, Spark, and PySpark ML for credit scoring
+              and risk analysis.
+            </li>
+            <li>
+              Integrated MuleSoft-based APIs for payment gateways, credit cards, and digital wallets, enforcing
+              PCI-DSS security standards.
+            </li>
+            <li>
+              Implemented CI/CD with OpenShift, Jenkins, and Maven; deployed services using Docker and
+              Kubernetes with monitoring via Grafana and Prometheus.
+            </li>
+          </ul>
+          <p class="exp-env">
+            <strong>Environment:</strong> Java 11/17, Spring Boot, Spring MVC, Hibernate/JPA, REST/SOAP,
+            React.js, AngularJS, MuleSoft, Kafka, Flink, Spark, PySpark, Cassandra, Redis, PostgreSQL, Oracle,
+            Terraform, Jenkins, OpenShift, WebLogic, GCP, AWS Glue, Docker, Kubernetes, Grafana, Prometheus.
+          </p>
+        </article>
+
+        <!-- Old National Bank -->
+        <article class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Java/J2EE Developer</div>
+              <div class="exp-company">Old National Bank · Hyderabad, India</div>
+            </div>
+            <div class="exp-dates">May 2021 – Jul 2022</div>
+          </div>
+          <ul class="exp-list">
+            <li>
+              Participated in all SDLC phases for enterprise banking applications built with Spring MVC,
+              Spring Boot, and Hibernate.
+            </li>
+            <li>
+              Developed secure RESTful and SOAP-based web services for inter-bank data exchange and regulatory
+              workflows.
+            </li>
+            <li>
+              Implemented microservices and JMS-based asynchronous messaging for high-traffic financial applications.
+            </li>
+            <li>
+              Created responsive customer-facing UIs using JSP, HTML5, CSS3, JavaScript, Bootstrap, and AngularJS.
+            </li>
+            <li>
+              Wrote complex PL/SQL stored procedures and triggers for transaction processing and reporting;
+              deployed components on WebLogic and Kubernetes.
+            </li>
+          </ul>
+          <p class="exp-env">
+            <strong>Environment:</strong> Java 7/8, Spring MVC, Spring Boot, Hibernate, JSP, HTML5, CSS3,
+            JavaScript, AngularJS, JMS, REST, SOAP, GraphQL, EJB, WebLogic, Log4j, JUnit, Terraform, PL/SQL,
+            PostgreSQL, MongoDB, Kubernetes, Agile/Scrum.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-heading">Projects</h2>
+      <p class="section-subtitle">
+        A sample of work aligned with real-world financial and transactional systems.
+      </p>
+
+      <div class="projects-grid">
+        <!-- Flight Reservation -->
+        <article class="project-card">
+          <h3>✈ Flight Reservation System</h3>
+          <p>
+            Full-stack flight booking platform that allows users to search flights, book tickets, manage
+            passengers, and view booking history with secure authentication and role-based access.
+          </p>
+
+          <div class="project-meta">
+            <span>Java · Spring Boot</span>
+            <span>React.js / Angular</span>
+            <span>REST APIs · JWT Auth</span>
+            <span>PostgreSQL / MySQL</span>
+            <span>Docker · Cloud-ready</span>
+          </div>
+
+          <ul class="project-list">
+            <li>
+              Designed RESTful microservices for flight search, booking, payment, and user management with
+              clean domain-driven boundaries.
+            </li>
+            <li>
+              Implemented secure login, registration, and role-based features for customers and admins with
+              JWT-based authentication.
+            </li>
+            <li>
+              Built responsive UI for searching flights by route/date, selecting seats, and confirming bookings.
+            </li>
+            <li>
+              Persisted bookings, passengers, and transaction details in a relational database with optimized
+              indexing for search queries.
+            </li>
+            <li>
+              Packaged the application into Docker containers and structured it for easy deployment to cloud
+              platforms such as GCP or AWS.
+            </li>
+          </ul>
+
+          <div style="margin-top:10px; font-size:11px; color:var(--text-muted);">
+            <em>Optional:</em> add links here once deployed →
+            <strong>GitHub Repo</strong> · <strong>Live Demo</strong>
+          </div>
+        </article>
+
+        <!-- Quick tech stack summary block -->
+        <div>
+          <div class="code-block">
+            <div>// Typical stack for my projects</div>
+            <div>backend: Java 17, Spring Boot, Spring Cloud</div>
+            <div>frontend: React.js / Angular, TypeScript</div>
+            <div>apis: REST, GraphQL, secured with OAuth2 / JWT</div>
+            <div>data: PostgreSQL, MongoDB, Redis, Kafka streams</div>
+            <div>cloud: GCP (GKE, Pub/Sub, BigQuery), AWS (ECS, S3)</div>
+            <div>devops: Docker, Kubernetes, Terraform, CI/CD (Jenkins, GitHub Actions)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Contact -->
+    <section id="education">
+      <h2 class="section-heading">Education &amp; Contact</h2>
+      <p class="section-subtitle">
+        Academic foundation and how to get in touch for opportunities.
+      </p>
+
+      <div class="edu-contact">
+        <div class="edu-card">
+          <h3>Education</h3>
+          <div class="edu-item">
+            <div class="edu-degree">MS in Computer Science</div>
+            <div class="edu-meta">University of Dayton · 2025</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">B.Tech in Electronics &amp; Communication Engineering</div>
+            <div class="edu-meta">Jawaharlal Nehru Technological University (JNTU) · 2021</div>
+          </div>
+        </div>
+
+        <div class="contact-card" id="contact">
+          <h3>Contact</h3>
+          <ul class="contact-list">
+            <li>
+              <span>Email</span>
+              <a href="mailto:b.meghana0812@gmail.com">b.meghana0812@gmail.com</a>
+            </li>
+            <li>
+              <span>Phone</span>
+              <a href="tel:+19375655029">+1 (937) 565 5029</a>
+            </li>
+            <li>
+              <span>LinkedIn</span>
+              <a
+                href="https://www.linkedin.com/in/meghanabolla"
+                target="_blank"
+                rel="noreferrer"
+              >
+                linkedin.com/in/meghanabolla
+              </a>
+            </li>
+            <!-- Add GitHub when ready -->
+            <!--
+            <li>
+              <span>GitHub</span>
+              <a href="https://github.com/your-handle" target="_blank" rel="noreferrer">
+                github.com/your-handle
+              </a>
+            </li>
+            -->
+            <li>
+              <span>Location</span>
+              Ohio, USA · Open to relocation &amp; remote roles
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Meghana Bolla · Built with Java, JavaScript, and a love for clean, secure systems.
+    </footer>
+  </main>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
